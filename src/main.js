@@ -43,7 +43,7 @@ function renderAppContent() {
 
         const title = roomData.name;
 
-        const liveLink = `https://fototobb.onrender.com/${firstRoomKey}`;
+        const liveLink = `/view?data=${firstRoomKey}`;
 
         liveStatus.innerHTML = `
     <strong>${title}</strong><br>
