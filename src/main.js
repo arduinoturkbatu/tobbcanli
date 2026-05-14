@@ -16,29 +16,6 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const roomsRef = ref(db, "rooms");
 
-const path = window.location.pathname;
-const params = new URLSearchParams(window.location.search);
-
-const data = params.get("data");
-
-
-if (path === "/view") {
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const data = urlParams.get('data');
-
-    if (data) {
-        const iframe = document.createElement('iframe');
-        iframe.src = 'https://fototobb.onrender.com/' + data;
-        iframe.frameBorder = '0';
-        iframe.setAttribute("style","width:100%; height: 100%; border:none;");
-
-        document.getElementById("app").appendChild(iframe);
-    } else {
-        console.log('No data parameter found in URL');
-    }
-}
-
 let deferredPrompt;
 
 function renderAppContent() {
@@ -129,4 +106,29 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
     deferredPrompt = e;
 
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const path = window.location.pathname;
+    const params = new URLSearchParams(window.location.search);
+
+    const data = params.get("data");
+
+
+    if (path === "/view") {
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const data = urlParams.get('data');
+
+        if (data) {
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://fototobb.onrender.com/' + data;
+            iframe.frameBorder = '0';
+            iframe.setAttribute("style", "width:100%; height: 100%; border:none;");
+
+            document.getElementById("app").appendChild(iframe);
+        } else {
+            console.log('No data parameter found in URL');
+        }
+    }
 });
