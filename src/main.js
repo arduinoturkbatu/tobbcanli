@@ -126,6 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
             iframe.frameBorder = '0';
             iframe.setAttribute("style", "width:100%; height: 100%; border:none;");
 
+            document.getElementById("app").innerHTML = "";
+            document.getElementById("app").setAttribute("style", "width:100%; height: 100%; padding: 0;");
             document.getElementById("app").appendChild(iframe);
         } else {
             console.log('No data parameter found in URL');
