@@ -9,11 +9,18 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            width: 100dvw;
+            height: 100dvh;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
-    
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const data = urlParams.get('data');
@@ -21,8 +28,6 @@
         if (data) {
             const iframe = document.createElement('iframe');
             iframe.src = 'https://fototobb.onrender.com/' + data;
-            iframe.width = '100dvw';
-            iframe.height = '100dvh';
             iframe.frameBorder = '0';
             
             document.body.appendChild(iframe);
