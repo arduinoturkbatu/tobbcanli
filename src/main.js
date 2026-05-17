@@ -29,9 +29,12 @@ function renderAppContent() {
     </div>
 
     <div class="content">
-        <h3>Aktif Yayın</h3>
+        <h3>
+            <span class="dot"></span> &nbsp;
+            Aktif Yayın
+        </h3>
         <p id="yayin">Aktif yayın bulunmamaktadır.</p>
-        <button id="refresh">
+        <button class="btn-secondary" id="refresh" onclick="location.reload()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-reload"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747" /><path d="M20 4v5h-5" /></svg>
             Yenile
         </button>
@@ -57,8 +60,8 @@ function renderAppContent() {
         const liveLink = `/view?data=${firstRoomKey}`;
 
         liveStatus.innerHTML = `
-    <strong>${title}</strong><br>
-    <a href="${liveLink}">
+    <strong>${title}</strong>
+    <a class="btn-primary" href="${liveLink}">
       Yayına Katıl
     </a>
   `;
@@ -72,7 +75,7 @@ function renderInstallScreen() {
     document.querySelector('#app').innerHTML = `
     <div class="content">
         <p>Kullanmaya başlamak için uygulamayı yükleyiniz.</p>
-        <button id="installBtn">
+        <button class="btn-primary" id="installBtn">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-download"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /><path d="M7 11l5 5l5 -5" /><path d="M12 4l0 12" /></svg>
             Uygulamayı Yükle
         </button>
@@ -106,7 +109,6 @@ if (isStandalone) {
 } else {
 
     renderInstallScreen();
-
 }
 
 window.addEventListener('beforeinstallprompt', (e) => {
