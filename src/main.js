@@ -1,6 +1,7 @@
 import './style.css'
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, onValue } from "firebase/database";
+import icon from '../public/icons/icon-192.png';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDVakE0ezK2bpxF_T87oz5VRw2vOlQICN8",
@@ -21,10 +22,20 @@ let deferredPrompt;
 function renderAppContent() {
 
     document.querySelector('#app').innerHTML = `
-    <h1>TOBBFEN Canlı 🔴</h1>
-    <h3>Aktif Yayın</h3>
-    <p id="yayin">Aktif yayın bulunmamaktadır.</p>
-    <button id="refresh">Yenile</button>
+    <div class="appbar">
+        <div class="decoration"></div>
+        <img src="${icon}" alt="TOBBFEN Canlı" class="logo-icon">
+        <span class="logo">TOBBFEN Canlı</span>
+    </div>
+
+    <div class="content">
+        <h3>Aktif Yayın</h3>
+        <p id="yayin">Aktif yayın bulunmamaktadır.</p>
+        <button id="refresh">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-reload"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747" /><path d="M20 4v5h-5" /></svg>
+            Yenile
+        </button>
+    </div>
   `;
     
     let liveStatus = document.querySelector("#yayin");
@@ -59,15 +70,13 @@ function renderAppContent() {
 function renderInstallScreen() {
 
     document.querySelector('#app').innerHTML = `
-    <h1>TOBBFEN Canlı 🔴</h1>
-
-    <p>
-      Kullanmaya başlamak için uygulamayı yükleyiniz.
-    </p>
-
-    <button id="installBtn">
-      Uygulamayı Yükle
-    </button>
+    <div class="content">
+        <p>Kullanmaya başlamak için uygulamayı yükleyiniz.</p>
+        <button id="installBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-download"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /><path d="M7 11l5 5l5 -5" /><path d="M12 4l0 12" /></svg>
+            Uygulamayı Yükle
+        </button>
+    </div>
   `;
 
     document

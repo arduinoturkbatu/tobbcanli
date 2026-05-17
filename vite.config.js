@@ -7,7 +7,7 @@ export default defineConfig({
             registerType: 'autoUpdate',
             manifest: {
                 name: 'TOBBFEN Canlı',
-                short_name: 'TOBBCANLI',
+                short_name: 'TOBBFEN Canlı',
                 theme_color: '#000000',
                 background_color: '#000000',
                 display: 'standalone',
