@@ -2,6 +2,8 @@ import './style.css'
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, onValue } from "firebase/database";
 import icon from '../public/icons/icon-192.png';
+import image1 from '../public/ss1.jpg';
+import image2 from '../public/ss2.jpg';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDVakE0ezK2bpxF_T87oz5VRw2vOlQICN8",
@@ -79,6 +81,15 @@ function renderInstallScreen() {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-download"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /><path d="M7 11l5 5l5 -5" /><path d="M12 4l0 12" /></svg>
             Uygulamayı Yükle
         </button>
+    </div>
+
+    <div class="info">
+        Google Chrome tarayıcısından giriş yapmanız tavsiye edilir. Yukarıdaki butona bastıktan sonra indirilen uygulamayı açarak uygulamayı kullanabilirsiniz.
+        <div class="options">
+            <img src="${image1}" alt="ekran görünütüsü 1" />
+            veya
+            <img src="${image2}" alt="ekran görüntüsü 2" />
+        </div>
     </div>
   `;
 
