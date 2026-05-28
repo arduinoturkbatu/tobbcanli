@@ -119,8 +119,7 @@ if (isStandalone) {
     renderAppContent();
 
 } else {
-    renderAppContent();
-    //renderInstallScreen();
+    renderInstallScreen();
 }
 
 window.addEventListener('beforeinstallprompt', (e) => {
