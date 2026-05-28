@@ -6,13 +6,13 @@ import image1 from '../public/ss1.jpg';
 import image2 from '../public/ss2.jpg';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDVakE0ezK2bpxF_T87oz5VRw2vOlQICN8",
-    authDomain: "fototobb-bfe51.firebaseapp.com",
-    databaseURL: "https://fototobb-bfe51-default-rtdb.firebaseio.com",
-    projectId: "fototobb-bfe51",
-    storageBucket: "fototobb-bfe51.firebasestorage.app",
-    messagingSenderId: "838056253447",
-    appId: "1:838056253447:web:24b4ccd62a85ec618cf2a2"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
@@ -24,8 +24,9 @@ let deferredPrompt;
 function renderAppContent() {
 
     document.querySelector('#app').innerHTML = `
+
+    <div class="decoration"></div>
     <div class="appbar">
-        <div class="decoration"></div>
         <img src="${icon}" alt="TOBBFEN Canlı" class="logo-icon">
         <span class="logo">TOBBFEN Canlı</span>
     </div>
@@ -118,8 +119,8 @@ if (isStandalone) {
     renderAppContent();
 
 } else {
-
-    renderInstallScreen();
+    renderAppContent();
+    //renderInstallScreen();
 }
 
 window.addEventListener('beforeinstallprompt', (e) => {
